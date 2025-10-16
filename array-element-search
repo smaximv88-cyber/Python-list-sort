@@ -1,0 +1,16 @@
+arr = [55, 77, 12, 54, 11]
+number_1 = int(input("Enter a number: "))
+number_2 = int(input("Enter another number: "))
+
+def is_n (n1, n2, arr):
+    arr_new = []
+    for num in range(len(arr)):
+        if arr[num] == n1 or arr[num] == n2:
+            arr_new.append(arr[num])
+    if len(arr_new) > 0:
+        return arr_new
+    else:
+        return "Таких чисел нет"
+
+
+print(is_n(number_1, number_2, arr))
