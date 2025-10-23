@@ -1,0 +1,18 @@
+def func(_text):
+    _text = _text.lower()
+    text_dict = {}
+    new_string = ""
+    text_ignor = ['the', 'and', 'a', 'in', 'on', 'at', 'to', 'for', 'of', 'is', 'are']
+    p = ',.!?;:"\''
+    for char in _text:
+        if char not in p:
+            new_string += char
+    new_string_list = new_string.split(" ")
+    for word in new_string_list:
+        if word not in text_ignor:
+            text_dict[word] = text_dict.get(word, 0) +1
+    result = {world: count for world, count in text_dict.items() if count > 1}
+
+    return result
+text = "This this book book is designed specifically with programming beginners in mind. Basic programming concepts — such as expressions, variables, loops, decisions, lists, dictionaries, sets, functions, files."
+print(func(text))
