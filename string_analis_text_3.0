@@ -1,0 +1,21 @@
+import string as st
+from collections import Counter
+
+def analiz_text(text):
+    translator = str.maketrans('', '', st.punctuation)
+    text = text.lower().translate(translator).split()
+    list_text = Counter(text)
+
+    copy_text = dict(sorted(list_text.items(), key= lambda item: item[1], reverse=True)[:3])
+    long_word = max(text, key=len)
+    count_words = [word for word in text if list_text[word] == 1]
+
+    len_sr = round(sum(map(len, text)) / len(text), 2)
+
+    print("Топ-3 самых частых слов:", copy_text)
+    print("Самое длинное слово:", long_word)
+    print("Уникальные слова (встречаются 1 раз):", count_words)
+    print("Средняя длина слова:", len_sr)
+
+
+analiz_text("Python is powerful, and Python is fast. Python programs can run on many operating systems. Learning Python is fun and rewarding!")
