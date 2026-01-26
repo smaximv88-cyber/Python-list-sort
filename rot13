@@ -1,0 +1,11 @@
+def rot13(input_str: str) -> str:
+    import string
+
+    lowercase = string.ascii_lowercase
+    uppercase = string.ascii_uppercase
+
+    trans_lower = str.maketrans(lowercase, lowercase[13:] + lowercase[:13])
+    trans_upper = str.maketrans(uppercase, uppercase[13:] + uppercase[:13])
+
+    result = input_str.translate(trans_lower).translate(trans_upper)
+    return result
